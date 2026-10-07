@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+<h1>Edit Booking</h1>
+<form action="/bookings/<%= booking._id %>?_method=PUT" method="POST">
+  <p>User:
+    <select name="user" required>
+      <option value="" disabled <%= booking.user ? "" : "selected" %>>-- Select a user --</option>
+      <% users.forEach(u => { %>
+        <option value="<%= u._id %>" <%= (booking.user && String(booking.user._id) === String(u._id)) ? "selected" : "" %>>
+          <%= u.fname %> <%= u.lname %>
+        </option>
+      <% }) %>
+    </select>
+  </p>
+  <p>Person ID (10 chars): <input name="personId" maxlength="10" value="<%= booking.personId %>" required></p>
+  <p>Date & Time: <input name="dateTime" type="datetime-local" value="<%= booking.dateTime %>" required></p>
+  <p>Card Number: <input name="cardNumber" value="<%= booking.cardNumber %>" required></p>
+  <button type="submit">Save Changes</button>
+</form>
+
+<p><a href="/bookings">Cancel / Back to Bookings</a></p>
+<%- include('partials/footer') %>

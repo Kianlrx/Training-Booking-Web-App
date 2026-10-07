@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+<h1>Edit User</h1>
+<form action="/users/<%= user._id %>?_method=PUT" method="POST">
+  <p>First Name: <input name="fname" value="<%= user.fname %>" required></p>
+  <p>Last Name: <input name="lname" value="<%= user.lname %>" required></p>
+  <p>Phone: <input name="phone" value="<%= user.phone || '' %>"></p>
+  <p>Email: <input name="email" type="email" value="<%= user.email || '' %>"></p>
+  <p>Person ID (10 chars): <input name="personId" maxlength="10" value="<%= user.personId || '' %>"></p>
+  <input type="hidden" name="returnTo" value="<%= returnTo %>">
+  <button type="submit">Save Changes</button>
+</form>
+
+<p><a href="<%= returnTo %>">Cancel</a></p>
+<%- include('partials/footer') %>

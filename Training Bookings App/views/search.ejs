@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<h1>Search</h1>
+<form action="/search/results" method="GET">
+
+  <p>First Name: <input name="fname" placeholder="First Name (Partial or Full)"></p>
+  <p>Last Name: <input name="lname" placeholder="Last Name (Partial or Full)"></p>
+  <p>Phone Number: <input name="phone"></p>
+  <p>Email: <input name="email"></p>
+  <p>Person ID: <input name="personId" maxlength="10" placeholder="10 chars"></p>
+
+  <button type="submit">Search</button>
+
+</form>
+
+<p><a href="/">Back Home</a></p><%- include('partials/footer') %>

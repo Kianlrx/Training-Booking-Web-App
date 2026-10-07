@@ -1,0 +1,176 @@
+/* ---------- Base ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f4f5f7;
+  color: #2a2f36;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+  color: #1a1d21;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.75rem;
+  color: #1a1d21;
+}
+
+a {
+  color: #3457d5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e1e4e8;
+  margin: 1.5rem 0;
+}
+
+small {
+  color: #6b7280;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Nav ---------- */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background: #1a1d21;
+  padding: 0.9rem 1.5rem;
+}
+
+.site-nav .brand {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.site-nav .brand:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.nav-links a {
+  color: #cfd3d9;
+  margin-left: 1.25rem;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ---------- Forms ---------- */
+
+form p {
+  margin: 0 0 1rem;
+}
+
+form p:has(input, select, textarea) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #d3d7dc;
+  border-radius: 5px;
+  background: #fff;
+  max-width: 380px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3457d5;
+  box-shadow: 0 0 0 3px rgba(52, 87, 213, 0.15);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  background: #3457d5;
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #2b46ad;
+}
+
+/* Delete buttons live inside inline forms next to list items */
+li form button,
+li form {
+  display: inline;
+}
+
+li form button {
+  background: #fff;
+  color: #c0392b;
+  border: 1px solid #e2b4ac;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.85rem;
+}
+
+li form button:hover {
+  background: #fdecea;
+}
+
+/* ---------- Lists ---------- */
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eceff2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li a {
+  margin-left: auto;
+}

@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+<h1>Bookings</h1>
+<form action="/bookings" method="POST">
+  <p>User:
+    <select name="user" required>
+      <option value="" disabled selected>-- Select a user --</option>
+      <% users.forEach(u => { %>
+        <option value="<%= u._id %>"><%= u.fname %> <%= u.lname %></option>
+      <% }) %>
+    </select>
+    <% if (users.length === 0) { %>
+      <br><small>No users yet — <a href="/users/new">create one first</a>.</small>
+    <% } %>
+  </p>
+  <p>Date & Time: <input name="dateTime" type="datetime-local" required></p>
+  <p>Card Number: <input name="cardNumber" required></p>
+  <button type="submit">Create Booking</button>
+</form>
+
+<hr>
+
+<h2>Existing Bookings</h2>
+<% if (bookings.length === 0) { %>
+  <p>No bookings yet.</p>
+<% } else { %>
+  <ul>
+    <% bookings.forEach(b => { %>
+      <li>
+        <b><%= b.user ? (b.user.fname + " " + b.user.lname) : "Unknown user" %></b>
+        — <%= b.personId %> — <%= b.dateTime %>
+        <a href="/bookings/<%= b._id %>/edit">Edit</a>
+        <form action="/bookings/<%= b._id %>?_method=DELETE" method="POST" style="display:inline">
+          <button>Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<p><a href="/">Back Home</a></p>
+<%- include('partials/footer') %>

@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<h1>Create User</h1>
+<form action="/users" method="POST">
+  <p>First Name: <input name="fname" required></p>
+  <p>Last Name: <input name="lname" required></p>
+  <p>Phone: <input name="phone"></p>
+  <p>Email: <input name="email" type="email"></p>
+  <p>Person ID (10 chars): <input name="personId" maxlength="10"></p>
+  <button type="submit">Create User</button>
+</form>
+
+<p><a href="/">Back Home</a></p>
+<%- include('partials/footer') %>

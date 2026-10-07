@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+<h1>Search Results</h1>
+<p><a href="/search">New Search</a> | <a href="/">Home</a></p>
+
+<% if (users.length === 0) { %>
+  <p>No users match your search.</p>
+<% } else { %>
+  <ul>
+    <% users.forEach(u => { %>
+      <li>
+        <b><%= u.fname %> <%= u.lname %></b>
+        — <%= u.email || "no email" %> — <%= u.phone || "no phone" %> — ID: <%= u.personId || "n/a" %>
+        <a href="/users/<%= u._id %>/edit?returnTo=<%= encodeURIComponent(returnTo) %>">Edit</a>
+        <form action="/users/<%= u._id %>?_method=DELETE" method="POST" style="display:inline">
+          <input type="hidden" name="returnTo" value="<%= returnTo %>">
+          <button>Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
+<%- include('partials/footer') %>
